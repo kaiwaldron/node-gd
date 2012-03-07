@@ -15,8 +15,17 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 */
 
 var util  = require('util'),
-    fs   = require("fs"),
-    gd_bindings = require("./build/default/node-gd");
+    fs   = require("fs");
+
+try {
+  // node 0.6.x
+  var gd_bindings = require('./build/Release/node-gd');
+} catch (e) { try {
+  // node 0.4.x
+  var gd_bindings= require('./build/default/node-gd');
+} catch (e) {
+  throw e;
+}}
 
 for(var p in gd_bindings) {
 	if (gd_bindings[p] !== undefined) exports[p] = gd_bindings[p];
