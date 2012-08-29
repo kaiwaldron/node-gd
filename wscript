@@ -17,7 +17,7 @@ def configure(conf):
   conf.check_tool("node_addon")
 
 def build(bld):
-  bld.env.append_value('LINKFLAGS', ['-lgd', '-L/opt/local/lib')
+  bld.env.append_value('LINKFLAGS', ['-lgd', '-L/opt/local/lib'])
   obj = bld.new_task_gen("cxx", "shlib", "node_addon")
   obj.target = "node-gd"
   obj.source = "node-gd.cc"
