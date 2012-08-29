@@ -15,7 +15,7 @@ def configure(conf):
     conf.env.CPPPATH = ['/opt/local/include']
   conf.check_tool("compiler_cxx")
   conf.check_tool("node_addon")
-  conf.env.append_value('LINKFLAGS', '-ldl')
+  conf.env.append_value('LINKFLAGS', '-lgd')
 
 def build(bld):
   obj = bld.new_task_gen("cxx", "shlib", "node_addon")
