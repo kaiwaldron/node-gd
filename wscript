@@ -10,7 +10,7 @@ def set_options(opt):
   opt.tool_options("compiler_cxx")
 
 def configure(conf):
-  if sys.platform == 'darwin'
+  if sys.platform == 'darwin':
     conf.env.CPPPATH = ['/opt/local/include']
   conf.check_tool("compiler_cxx")
   conf.check_tool("node_addon")
