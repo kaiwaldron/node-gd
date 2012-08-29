@@ -15,9 +15,9 @@ def configure(conf):
     conf.env.CPPPATH = ['/opt/local/include']
   conf.check_tool("compiler_cxx")
   conf.check_tool("node_addon")
-  conf.env.append_value('LINKFLAGS', '-lgd')
 
 def build(bld):
+  bld.env.append_value('LINKFLAGS', '-lgd')
   obj = bld.new_task_gen("cxx", "shlib", "node_addon")
   obj.target = "node-gd"
   obj.source = "node-gd.cc"
